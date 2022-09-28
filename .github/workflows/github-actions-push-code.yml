@@ -1,8 +1,0 @@
-name: GitHub Actions push code
-run-name: ${{ github.ref_name }} review pipeline
-on: [push]
-jobs:
-  Review-pipeline:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Hello from review pipleine"
