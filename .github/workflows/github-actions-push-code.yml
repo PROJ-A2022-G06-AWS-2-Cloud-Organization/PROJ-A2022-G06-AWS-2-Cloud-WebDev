@@ -1,5 +1,5 @@
 name: GitHub Actions push code
-run-name: ${{GITHUB_REF##*/}} review pipeline
+run-name: ${{ github.ref_name }} review pipeline
 on: [push]
 jobs:
   Review-pipeline:
