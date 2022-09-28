@@ -5,4 +5,4 @@ jobs:
   Review-pipeline:
     runs-on: ubuntu-latest
     steps:
-      -run: echo "Hello from review pipleine"
+      - run: echo "Hello from review pipleine"
