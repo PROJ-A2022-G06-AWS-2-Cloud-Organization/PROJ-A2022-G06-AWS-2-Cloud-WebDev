@@ -1,17 +1,27 @@
 name: Review pipeline
 run-name: ${{ github.ref_name }} review pipeline
 
-on:
-  push:
-    branches: [ master, develop ]
-  pull_request:
-    branches: [ develop ]
+on: [push]
 
 jobs:
   Review-pipeline:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Hello from review pipeline"
+      
+      # Run unit tests.
+      # Set up the environtment.
+      - uses: actions/checkout@v1
+      - name: Install Node
+        uses: actions/setup-node@v1
+      - name: Install mocha
+        run: npm install -g mocha
+      - name: Install dependencies
+        run: npm install
+      # Run tests
+      #- name: Run tests
+        #run: mocha 
+
 
   analyze:
     name: Analyze
