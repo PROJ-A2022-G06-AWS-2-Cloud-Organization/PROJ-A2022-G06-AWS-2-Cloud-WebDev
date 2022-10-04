@@ -4,17 +4,17 @@ run-name: ${{ github.ref_name }} review pipeline
 on: [push]
 
 jobs:
-  Review-pipeline:
+  Unit-tests:
+    name: Unit tests
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello from review pipeline"
-      
-      # Unit tests.
       - uses: actions/checkout@v1
       - name: Install Node
         uses: actions/setup-node@v1
       - name: Install mocha
         run: npm install -g mocha
+      - name: Install chai
+        run: npm install -g chai
       - name: Install dependencies
         run: npm install
 
@@ -31,8 +31,8 @@ jobs:
           fail-on-error: true
 
 
-  analyze:
-    name: Coverage Analyze
+  Coverage-analysis:
+    name: Coverage Analysis
     runs-on: ubuntu-latest
 
     strategy:
