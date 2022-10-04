@@ -9,8 +9,7 @@ jobs:
     steps:
       - run: echo "Hello from review pipeline"
       
-      # Run unit tests.
-      # Set up the environtment.
+      # Unit tests.
       - uses: actions/checkout@v1
       - name: Install Node
         uses: actions/setup-node@v1
@@ -18,13 +17,23 @@ jobs:
         run: npm install -g mocha
       - name: Install dependencies
         run: npm install
-      # Run tests
-      #- name: Run tests
-        #run: mocha 
+
+      - name: Run tests
+        working-directory: ./Backend/test
+        run: '*.test.js'
+
+      - name: Test report
+        #path: 
+        working-directory: ./Backend/test
+        uses: dorny/test-reporter@v1
+        if: success() || failure()
+        reporter: mocha-json
+        list-tests: failed
+        fail-on-error: true
 
 
   analyze:
-    name: Analyze
+    name: Coverage Analyze
     runs-on: ubuntu-latest
 
     strategy:
