@@ -24,13 +24,11 @@ jobs:
 
       - name: Test report
         uses: dorny/test-reporter@v1
-        #path: 
-        working-directory: ./Backend/test
-        #if: success() || failure()
-        #with:
-        reporter: mocha-json
-        list-tests: failed
-        fail-on-error: true
+        with:
+          working-directory: ./Backend/test
+          reporter: mocha-json
+          list-tests: failed
+          fail-on-error: true
 
 
   analyze:
