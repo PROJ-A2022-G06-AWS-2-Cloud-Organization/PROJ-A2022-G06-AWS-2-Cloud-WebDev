@@ -19,20 +19,20 @@ jobs:
         run: npm install
 
       - name: Run tests
-        working-directory: ./Backend/test
-        run: '*.test.js'
+        working-directory: ./Backend
+        run: npm test #'*.test.js'
 
       - name: Test report
         uses: dorny/test-reporter@v1
+        if: success() || failure()
         with:
-          working-directory: ./Backend/test
+          name: Mocha Tests
+          path: reports/*.json
           reporter: mocha-json
-          list-tests: failed
-          fail-on-error: true
 
 
-  Coverage-analysis:
-    name: Coverage Analysis
+  Code-scanning:
+    name: Code scan
     runs-on: ubuntu-latest
 
     strategy:
