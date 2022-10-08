@@ -16,6 +16,7 @@ jobs:
       - name: Install mocha
         run: npm install -g mocha
       - name: Install dependencies
+        working-directory: ./Backend
         run: npm install 
 
       - name: Run tests
