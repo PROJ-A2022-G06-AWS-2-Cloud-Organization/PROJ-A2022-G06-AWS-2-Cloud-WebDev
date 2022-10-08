@@ -11,13 +11,6 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v1
       - uses: actions/checkout@v1
-      - name: 'Cache node_modules'
-        uses: actions/cache@v3
-        with:
-          path: '~/.npm'
-          key: "ubuntu-latest-node-full-v16-${{ hashFiles('**/package-lock.json') }}"
-          restore-keys: |
-            ubuntu-latest-node-full-v16-
       - name: Install mocha
         run: npm install -g mocha
       - name: Install chai
@@ -25,7 +18,7 @@ jobs:
 
       - name: Run tests
         working-directory: ./Backend/test
-        run: npm run test #'*.test.js'
+        run: npm run '*.test.js'
 
       #- name: Test report
       #  uses: dorny/test-reporter@v1
