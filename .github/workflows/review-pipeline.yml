@@ -17,8 +17,8 @@ jobs:
         run: npm install 
 
       - name: Run tests
-        working-directory: ./Backend/test
-        run: mocha index.test.js
+        working-directory: ./Backend
+        run: npm test
 
       #- name: Test report
       #  uses: dorny/test-reporter@v1
