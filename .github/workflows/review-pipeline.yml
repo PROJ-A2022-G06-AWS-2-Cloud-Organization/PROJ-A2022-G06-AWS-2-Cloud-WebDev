@@ -17,7 +17,7 @@ jobs:
         run: npm install 
 
       - name: Run tests
-        working-directory: ./Backend/
+        working-directory: ./Backend/test
         run: mocha index.test.js
 
       #- name: Test report
