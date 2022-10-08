@@ -18,7 +18,7 @@ jobs:
 
       - name: Run tests
         working-directory: ./Backend/
-        run: mocha *.test.js
+        run: mocha index.test.js
 
       #- name: Test report
       #  uses: dorny/test-reporter@v1
