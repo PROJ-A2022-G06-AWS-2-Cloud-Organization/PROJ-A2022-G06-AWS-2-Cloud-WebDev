@@ -21,4 +21,10 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
 
+function dontCheckNull( nullRef ){
+  console.log( nullRef );
+}
+
+dontCheckNull(null);
+
 export default app;
